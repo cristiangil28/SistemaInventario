@@ -13,8 +13,14 @@ class Facturas extends Migration
      */
     public function up()
     {
-        Schema::create('Facturas', function (Blueprint $table) {
+        Schema::create('facturas', function ( $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id');
+            $table->integer('producto_id');
+            $table->string('descripcion');
+            $table->float('precio');
+            $table->integer('cantidad');
+            $table->float('total');
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ class Facturas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Facturas');
+        Schema::dropIfExists('facturas');
     }
 }

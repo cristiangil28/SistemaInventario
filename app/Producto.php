@@ -12,4 +12,7 @@ class Producto extends Model
     public function proveedor(){
         return $this->belongsTo(Proveedor::class);
     }
+    public function factura(){
+        return $this->belongsTo(Factura::class);
+    }
 }
