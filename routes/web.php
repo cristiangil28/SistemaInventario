@@ -15,7 +15,7 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('producto', 'ProductoController');
 Route::resource('proveedor', 'ProveedorController');
@@ -23,7 +23,7 @@ Route::resource('factura', 'FacturaController');
 Route::resource('cliente', 'ClienteController');
 
 Route::get('/', function(){
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();

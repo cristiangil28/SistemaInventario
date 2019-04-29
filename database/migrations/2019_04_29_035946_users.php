@@ -3,8 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
-class Facturas extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +12,15 @@ class Facturas extends Migration
      */
     public function up()
     {
-        Schema::create('facturas', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('cliente_id');
-            $table->integer('producto_id');
-            $table->string('descripcion');
-            $table->float('precio');
-            $table->integer('cantidad');
-            $table->float('total');
+            $table->string('name',45);
+            $table->string('email',100)->unique();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -32,6 +28,6 @@ class Facturas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('facturas');
+        Schema::dropIfExists('users');
     }
 }

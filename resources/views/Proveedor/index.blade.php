@@ -1,10 +1,13 @@
 @extends('Layaout.layaout')
 @section('content')
-<div class="row">
-  <section class="content">
+  <section class="container">
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-body">
+            <div class="col-xs-10 col-sm-10 col-md-4">
+                <a href="{{ route('proveedor.create') }}" class="btn btn-info btn-block" >Nuevo Proveedor</a>
+              </div>
+              <br>
           <div class="pull-left"><h3>Lista de Proveedores</h3></div>
           <div class="pull-right">
             <div class="btn-group">
@@ -39,6 +42,7 @@
       </div>
     </div>
   </div>
+  
 </section>
 
 @endsection

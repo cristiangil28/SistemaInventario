@@ -8,6 +8,10 @@ use App\Producto;
 class FacturaController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
    
     public function index()
     {   

@@ -10,6 +10,10 @@
         @endif
       <div class="panel panel-default">
         <div class="panel-body">
+            <div class="col-xs-10 col-sm-10 col-md-4">
+                <a href="{{ route('producto.create') }}" class="btn btn-info btn-block" >Nuevo Producto</a>
+              </div>
+              <br>
           <div class="pull-left"><h3>Lista Productos</h3></div>
           <div class="pull-right">
             <div class="btn-group">

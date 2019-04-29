@@ -1,7 +1,7 @@
 @extends('Layaout.layaout')
 @section('content')
-<div class="row">
-	<section class="content">
+
+	<section class="container">
 		<div class="col-md-8 col-md-offset-2">
 			
 			@if(Session::has('success'))
