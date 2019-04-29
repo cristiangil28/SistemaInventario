@@ -184,3 +184,94 @@ Route::resource('cliente', 'ClienteController');</code>
           2. el segundo link del menú es Facturas el cuál va a mostrar la lista de facturas que se han generado
           3. el tercer link es Proveedor que nos va a redireccionar a vista que contiene la lista de proveedores, además de permitornos
           crear un nuevo Proveedor.
+          
+   se crean los seeders para cargar información a la base de datos:
+   
+   para crear un seeder se ejecuta el siguien comando:
+   <pre>
+   <code>
+        php artisan make:seeder NombreSeeder
+   </code>
+   
+   </pre>
+   
+   asi se vería un código de un seeder:
+   <pre>
+   <code>
+       <?php
+
+use Illuminate\Database\Seeder;
+use App\Proveedor;
+class ProveedorSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        Proveedor::truncate();
+        Proveedor::create([
+            'nombre'=>'GOOGLE',
+            'telefono'=>'988788'
+        ]);
+    }
+}
+
+   </code>
+   
+   </pre>
+   
+   
+   para ejecutarlo y cargarlo a la tabla en la base de datos se hace con la siguiente instrucción:
+   
+   <pre><code>ph artisan db:seed</code></pre>
+   
+   
+   por último se crearon los request para la validación de los datos.
+   instrucción para crear un request:
+   
+   <pre><code>ph artisan make:request NombreRequest</code></pre>
+   
+   este se crea en la carpeta Http/Requests
+   
+   ejemplo de un request:
+   
+   <pre><code>
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class ProductoRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            'nombre_producto'=>'required|max:50|string|min:3',
+            'precio'=>'numeric|required',
+            'cantidad'=>'required|numeric',
+            'numero_lote'=>'required|string|max:255|min:3',
+            'fecha_caducidad'=>'required|date'
+        ];
+    }
+}
+</code></pre>
+   
+Y este se debe registrar en el controlador como parametro en los métodos, en vez de Request request, se cambia por NombreRequest request.
