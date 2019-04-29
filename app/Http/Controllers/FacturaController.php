@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\FacturaRequest;
 use App\Factura;
 use App\Producto;
 class FacturaController extends Controller
@@ -26,7 +27,7 @@ class FacturaController extends Controller
         return view('Factura.create',compact('producto'));
     }
 
-    public function update(Request $request,$id)
+    public function update(FacturaRequest $request,$id)
     {
         $producto=Producto::find($id);
         $cantidad_actual=$producto->cantidad;

@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Validator;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductoRequest;
 use App\Producto;
 
 class ProductoController extends Controller
@@ -43,7 +44,7 @@ class ProductoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductoRequest $request)
     {
         
         Producto::create($request->all());
