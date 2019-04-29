@@ -3,6 +3,16 @@
 
 
 			<div class="container">
+					@if (count($errors) > 0)
+					<div class="alert alert-danger">
+						<strong>Error!</strong> Revise los campos obligatorios.<br><br>
+						<ul>
+							@foreach ($errors->all() as $error)
+							<li>{{ $error }}</li>
+							@endforeach
+						</ul>
+					</div>
+					@endif
 				<div class="panel-heading">
 					<h3 class="panel-title " style="text-align:center">Nuevo Producto</h3>
 				</div>
@@ -14,13 +24,13 @@
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
                                         <input type="text" name="nombre_producto" id="nombre" class="form-control input-sm" 
-                                        placeholder="Nombre del producto" required="true">
+                                        placeholder="Nombre del producto" value="{{ old('nombre_producto') }}" required="true" >
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
                                         <input type="number" name="precio" id="precio" class="form-control input-sm" 
-										placeholder="Precio" required="true">
+										placeholder="Precio" required="true" value="{{ old('precio') }}">
 										<p></p>
 									</div>
 								</div>
@@ -30,13 +40,13 @@
                                     <div class="col-xs-6 col-sm-6 col-md-6">
                                             <div class="form-group">
                                                     <input type="number" name="cantidad" id="cantidad" class="form-control input-sm" 
-                                                    placeholder="Cantidad" required="true">
+                                                    placeholder="Cantidad" required="true" value="{{ old('cantidad') }}">
                                             </div>
                                         </div> 
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
                                         <input type="text" name="numero_lote" id="nlote" class="form-control input-sm" 
-                                        placeholder="Número de lote" required="true">
+                                        placeholder="Número de lote" required="true" value="{{ old('numero_lote') }}">
 									</div>
                                 </div>
                             </div>  
@@ -44,7 +54,7 @@
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
                                         <input type="date" name="fecha_caducidad" id="fecha_caducidad" class="form-control input-sm" 
-                                        placeholder="Fecha de Caducidad" required="true">
+                                        placeholder="Fecha de Caducidad" required="true" value="{{ old('fecha_caducidad') }}">
 									</div>
 								</div>
                             
