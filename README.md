@@ -10,3 +10,41 @@ creación de proyecto
 </pre>
 
 
+creacion de los modelos
+
+<pre>
+	<code>php artisan make:model Producto</code>
+</pre>
+<pre>
+	<code>php artisan make:model Factura</code>
+</pre>
+<pre>
+	<code>php artisan make:model Proveedor</code>
+</pre>
+
+creacion de las migraciones
+
+<pre>
+	<code>php artisan make:migration productos --create=productos</code>
+</pre>
+<pre>
+	<code>php artisan make:migration facturas --create=facturas</code>
+</pre>
+<pre>
+	<code>php artisan make:migration proveedores --create=proveedores</code>
+</pre>
+
+despues de crear las tablas se deben migrar a la base de datos con el siguiente comando:
+
+<pre>
+	<code>php artisan migrate</code>
+</pre>
+
+
+se crean los controladores para las tablas que fueron creadas anteriormente
+
+<pre>
+	<code>php artisan make:controller NameController</code>
+</pre>
+
+
