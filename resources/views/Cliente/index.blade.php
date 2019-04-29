@@ -1,8 +1,7 @@
-@extends('Layaout.layaout')
-
+@extends('Layouts.app')
 @section('content')
-
-  <section class="container">
+<div class="row">
+  <section class="content">
     <div class="col-md-8 col-md-offset-2">
         @if(Session::has('success'))
         <div class="alert alert-info">
@@ -11,36 +10,30 @@
         @endif
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="pull-left"><h3>Listado de facturas</h3></div>
-          
+          <div class="pull-left"><h3>Lista clientes</h3></div>
           <div class="pull-right">
             <div class="btn-group">
               <!--<a href="" class="btn btn-info" >Añadir Libro</a>-->
             </div>
           </div>
-          
+        
           <div class="table-container">
            
             <table id="mytable" class="table table-bordred table-striped">
              <thead>
-               <th>Usuario</th>
-               <th>Producto</th>
-               <th>descripción</th>
-               <th>precio</th>
-               <th>cantidad</th>
-               <th>total</th>
+               <th>Nombre</th>
+               <th>Apellido</th>
+               <th>Cédula</th>
+               <th>Teléfono</th>
              </thead>
              <tbody>
-              @if($facturas->count())  
-              @foreach($facturas as $factura)  
+              @if($clientes->count())  
+              @foreach($clientes as $cliente)  
               <tr>
-                <td>{{$factura->usuario->name}}</td>
-                <td>{{$factura->producto_id}}</td>
-                <td>{{$factura->descripcion}}</td>
-                <td>${{$factura->precio}}</td>
-                <td>{{$factura->cantida}}</td>
-                <td>${{$factura->total}}</td>
-                
+                <td>{{$cliente->nombre}}</td>
+                <td>{{$cliente->apellido}}</td>
+                <td>{{$cliente->cedula}}</td>
+                <td>{{$cliente->telefono}}</td>
                 
                </tr>
                @endforeach 
@@ -52,6 +45,7 @@
             </tbody>
 
           </table>
+          {{auth()->user()->email}}
         </div>
       </div>
     </div>

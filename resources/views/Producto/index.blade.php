@@ -1,7 +1,7 @@
 @extends('Layaout.layaout')
 @section('content')
-<div class="row">
-  <section class="content">
+  <hr>
+  <div class="container">
     <div class="col-md-8 col-md-offset-2">
         @if(Session::has('success'))
         <div class="alert alert-info">
@@ -16,6 +16,7 @@
               <!--<a href="" class="btn btn-info" >Añadir Libro</a>-->
             </div>
           </div>
+        
           <div class="table-container">
            
             <table id="mytable" class="table table-bordred table-striped">
@@ -27,7 +28,7 @@
                <th>Fecha de caducidad</th>
                <th>Proveedor</th>
                <th>Editar</th>
-               <th>Eliminar</th>
+               <th>Comprar</th>
              </thead>
              <tbody>
               @if($productos->count())  
@@ -39,14 +40,9 @@
                 <td>{{$producto->numero_lote}}</td>
                 <td>{{$producto->fecha_caducidad}}</td>
                 <td>{{$producto->proveedor->nombre}}</td>
-                <td><a class="btn btn-primary btn-xs" href="{{action('ProductoController@edit', $producto->id)}}"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                <td>
-                    <form action="{{action('ProductoController@destroy', $producto->id)}}" method="post">
-                     {{csrf_field()}}
-                     <input name="_method" type="hidden" value="DELETE">
-  
-                     <button class="btn btn-danger btn-xs" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
-                   </td>
+                <td><a class="btn btn-primary btn-xs" href="{{action('ProductoController@edit', $producto->id)}}"><span class="glyphicon glyphicon-pencil">Editar</span></a></td>
+                
+                   <td><a class="btn btn-warning btn-xs" href="{{action('FacturaController@edit', $producto->id)}}"><span class="glyphicon glyphicon-pencil">Comprar</span></a></td>
                </tr>
                @endforeach 
                @else
@@ -61,6 +57,6 @@
       </div>
     </div>
   </div>
-</section>
+</div>
 
 @endsection

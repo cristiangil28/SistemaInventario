@@ -17,6 +17,9 @@ class CreateFacturasTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->integer('producto_id');
+            $table->float('precio');
+            $table->integer('cantidad');
+            $table->float('total');
             $table->string('descripcion',200);
             $table->timestamps();
         });

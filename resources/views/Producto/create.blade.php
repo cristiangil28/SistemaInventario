@@ -1,18 +1,8 @@
 @extends('layaout.layaout')
 @section('content')
-<div class="row">
-	<section class="content">
-		<div class="col-md-8 col-md-offset-2">
-			
-			
-			
-			@if(Session::has('success'))
-			<div class="alert alert-info">
-				{{Session::get('success')}}
-			</div>
-			@endif
 
-			<div class="panel panel-default">
+
+			<div class="container">
 				<div class="panel-heading">
 					<h3 class="panel-title " style="text-align:center">Nuevo Producto</h3>
 				</div>
@@ -30,7 +20,8 @@
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
                                         <input type="number" name="precio" id="precio" class="form-control input-sm" 
-                                        placeholder="Precio" required="true">
+										placeholder="Precio" required="true">
+										<p></p>
 									</div>
 								</div>
 							</div>
@@ -81,6 +72,5 @@
 				</div>
 
 			</div>
-		</div>
-	</section>
+</div>
 	@endsection
