@@ -3,6 +3,16 @@
 
 
 			<div class="container">
+					@if (count($errors) > 0)
+					<div class="alert alert-danger">
+						<strong>Error!</strong> Revise los campos obligatorios.<br><br>
+						<ul>
+							@foreach ($errors->all() as $error)
+							<li>{{ $error }}</li>
+							@endforeach
+						</ul>
+					</div>
+					@endif
 				<div class="panel-heading">
 					<h3 class="panel-title " style="text-align:center">Nuevo Proveedor</h3>
 				</div>
@@ -14,13 +24,13 @@
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
                                         <input type="text" name="nombre" id="nombre" class="form-control input-sm" 
-                                        placeholder="Nombre del proveedor" required="true">
+                                        placeholder="Nombre del proveedor" required="true" value="{{ old('nombre') }}">
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
                                         <input type="text" name="telefono" id="telefono" class="form-control input-sm" 
-										placeholder="ingrese telefono de contacto" required="true">
+										placeholder="ingrese telefono de contacto" required="true" value="{{ old('telefono') }}">
 										<p></p>
 									</div>
 								</div>
